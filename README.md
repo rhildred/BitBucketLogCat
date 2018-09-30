@@ -1,4 +1,4 @@
-# <a href="" target="_blank">BitBucketLogCat</a>
+# <a href="https://github.com/rhildred/BitBucketLogCat" target="_blank">BitBucketLogCat</a>
 
 Ships logcat from device to a bitbucket issue. Works with jitpack.io. 
 
@@ -40,3 +40,5 @@ BitBucketLogCat.e("rhildred", "faculty", "Logged using my package", "rhildred");
 ```
 
 To make this more plug and play I created a Bitbucket user ysaasissues. You will need to add this user with read access to your repository.
+
+![Add ysaasissues user with read privileges](https://rhildred.github.io/BitBucketLogCat/READMEImages/ysaasissuesreadonly.png "Add ysaasissues user with read privileges")
