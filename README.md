@@ -36,7 +36,13 @@ To use this log whatever you need to the logcat. For instance:
 When you want to send the logcat to a bitbucket issue:
 
 ```java
-BitBucketLogCat.e("rhildred", "faculty", "Logged using my package", "rhildred");
+BitBucketLogCat.e(this, "rhildred", "faculty", "Logged using my package", "rhildred");
+```
+
+or if in a fragment
+
+```java
+BitBucketLogCat.e(getActivity(), "rhildred", "faculty", "Logged using my package", "rhildred");
 ```
 
 To make this more plug and play I created a Bitbucket user ysaasissues. You will need to add this user with read access to your repository.
