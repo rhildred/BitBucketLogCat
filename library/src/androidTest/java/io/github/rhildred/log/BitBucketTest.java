@@ -9,8 +9,8 @@ public class BitBucketTest extends ApplicationTestCase<Application> {
         super(Application.class);
     }
     public void testBitBucketLogCat() throws Exception {
-        BitBucketLogCat.eSynchronous("rhildred", "faculty", "test logcat", "rhildred");
-        assertEquals(true, true);
+        assertEquals(true,
+                BitBucketLogCat.eSynchronous("rhildred", "faculty", "test logcat", "rhildred"));
     }
 
 }

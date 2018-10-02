@@ -16,7 +16,7 @@ import java.net.URLEncoder;
 import static android.content.ContentValues.TAG;
 
 public class BitBucketLogCat {
-    static public void eSynchronous(final String sBbAccount, final String sComponent, final String sTitle, final String sUser){
+    static public boolean eSynchronous(final String sBbAccount, final String sComponent, final String sTitle, final String sUser){
         HttpURLConnection connection = null;
         try {
             //Your code goes here
@@ -69,8 +69,10 @@ public class BitBucketLogCat {
             }
             rd.close();
             Log.d(TAG, "Sent LogCat\n" + response.toString());
+            return true;
         } catch (Exception e) {
-            Log.e(TAG, Log.getStackTraceString(e));;
+            Log.e(TAG, Log.getStackTraceString(e));
+            return false;
         } finally {
 
             if (connection != null) {
