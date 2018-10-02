@@ -2,6 +2,7 @@ package io.github.rhildred.log;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageInfo;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -16,7 +17,7 @@ import java.net.URLEncoder;
 import static android.content.ContentValues.TAG;
 
 public class BitBucketLogCat {
-    static public boolean eSynchronous(final String sBbAccount, final String sComponent, final String sTitle, final String sUser){
+    static public boolean eSynchronous(final Context c, final String sBbAccount, final String sComponent, final String sTitle, final String sUser){
         HttpURLConnection connection = null;
         try {
             //Your code goes here
@@ -25,6 +26,11 @@ public class BitBucketLogCat {
                     new InputStreamReader(process.getInputStream()));
 
             StringBuilder log = new StringBuilder();
+            PackageInfo pinfo = c.getPackageManager().getPackageInfo(c.getPackageName(), 0);
+            int versionNumber = pinfo.versionCode;
+            String versionName = pinfo.versionName;
+            log.append(c.getPackageName() + " versionName: " + versionName + " versionNumber: " + versionNumber + "\n\n");
+
             String line = "";
             while ((line = bufferedReader.readLine()) != null) {
                 log.append(line + "\n\n");
@@ -81,14 +87,14 @@ public class BitBucketLogCat {
         }
 
     }
-    static public void e(final String sBbAccount, final String sComponent, final String sTitle, final String sUser){
+    static public void e(final Context c, final String sBbAccount, final String sComponent, final String sTitle, final String sUser){
         try {
 
             //Send request not in UI thread
             Thread thread = new Thread(new Runnable(){
                 @Override
                 public void run() {
-                    BitBucketLogCat.eSynchronous(sBbAccount, sComponent, sTitle, sUser);
+                    BitBucketLogCat.eSynchronous(c, sBbAccount, sComponent, sTitle, sUser);
                 }
             });
             thread.start();

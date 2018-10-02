@@ -8,9 +8,17 @@ public class BitBucketTest extends ApplicationTestCase<Application> {
     public BitBucketTest() {
         super(Application.class);
     }
+
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+        createApplication();
+    }
+
+
     public void testBitBucketLogCat() throws Exception {
         assertEquals(true,
-                BitBucketLogCat.eSynchronous("rhildred", "faculty", "test logcat", "rhildred"));
+                BitBucketLogCat.eSynchronous(getContext(),"rhildred", "faculty", "test logcat", "rhildred"));
     }
 
 }
