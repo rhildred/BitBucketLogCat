@@ -46,7 +46,7 @@ public class BitBucketLogCat {
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             // ysaasissues/Secret55 (this user will need to be given read access to whichever repository is to receive logcat info)
-            connection.setRequestProperty("Authorization", "Basic eXNhYXNpc3N1ZXM6U2VjcmV0NTU=");
+            connection.setRequestProperty("Authorization", "Basic cmhpbGRyZWRpc3N1ZXM6U2VjcmV0NjUwMw=");
             connection.setRequestProperty("Content-Type",
                     "application/x-www-form-urlencoded");
 
