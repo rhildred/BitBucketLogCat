@@ -45,6 +45,6 @@ or if in a fragment
 BitBucketLogCat.e(getActivity(), "rhildred", "faculty", "Logged using my package", "rhildred");
 ```
 
-To make this more plug and play I created a Bitbucket user ysaasissues. You will need to add this user with read access to your repository.
+To make this more plug and play I created a Bitbucket user rhildredissues. You will need to add this user with read access to your repository.
 
 ![Add ysaasissues user with read privileges](https://rhildred.github.io/BitBucketLogCat/READMEImages/ysaasissuesreadonly.png "Add ysaasissues user with read privileges")
